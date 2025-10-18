@@ -19,16 +19,14 @@ class Store:
             total_quantity += product.get_quantity()
         return total_quantity
 
-    def get_all_products(self):
+    def get_all_products(self) -> list:
         """Returns all products in the store that are active."""
         active_products = []
-        for i, product in enumerate(self.product_list, 1):
+        for product in self.product_list:
             if product.is_active():
-                product_details = f"{i}. {product.name}, Price: ${product.price}, Quantity: {product.quantity}"
-                active_products.append(product_details + "\n")
-        active_products.append("----------")
-        result = "".join(active_products)
-        return result
+                product_details = (product.name, product.price, product.quantity)
+                active_products.append(product_details)
+        return active_products
 
     def order(self, shopping_list: list) -> float:
         """Gets a list of tuples, where each tuple has 2 items:
