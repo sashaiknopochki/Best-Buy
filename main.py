@@ -25,9 +25,14 @@ Store Menu
         print(store.get_all_products())
         start(store)
     elif choice == "2":
-        store.get_all_products()
+        print(f"Total of {store.get_total_quantity()} items in store.")
     elif choice == "3":
         shopping_list = []
+        pass
+    elif choice == "4":
+        exit()
+    else:
+        print("Please choose a valid number.")
 
 
 
